@@ -59,6 +59,9 @@ A = sparse(nx*ny,nx*ny);
 %calki z B^x_i(x) B^y_j(y) B^x_k(x) B^y_l(y)
 %(i,k=1,...,Nx; j,l=1,...,Ny)
 %petla po elementach w osi x
+
+counter = 0
+max_count = elementsx * elementsy
 for ex = 1:elementsx;
   % zakres funkcji niezerowych nad elementem
   [xl,xh] = dofs_on_element(knot_vectorx,px,ex);
@@ -115,6 +118,9 @@ for ex = 1:elementsx;
         endfor
       endfor
     endfor
+    counter = counter + 1
+    disp("done:")
+    disp(counter / max_count)
   endfor
 endfor
 
